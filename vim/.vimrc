@@ -2,7 +2,9 @@
 set backspace=indent,eol,start
 set colorcolumn=80	" visually indicate column 80
 set history=50		" 50 lines of command line history, default 20
+set hlsearch		" highlight all search matches
 set ignorecase		" ignore case when searching
+set mouse=a		" enable mouse
 set nocompatible	" disable vi compability mode
 set nomodeline		" avoid this security issue
 set number		" show line numbers
