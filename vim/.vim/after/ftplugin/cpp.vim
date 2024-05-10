@@ -1,4 +1,4 @@
-setlocal expandtab tabstop=2 shiftwidth=2
+setlocal expandtab softtabstop=2 tabstop=2 shiftwidth=2
 
 if executable('clang-format')
     augroup filetype_cpp
