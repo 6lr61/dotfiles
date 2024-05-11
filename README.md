@@ -4,7 +4,7 @@ These dotfiles can be _restowed_ using [GNU Stow](https://www.gnu.org/software/s
 
 ## Setup
 
-The following two commands can be used to _restow_ the dotfiles on a new machine.
+To _restow_ the dotfiles on a new machine, first clone this repository and then run the makefile from that directory.
 
 ```console
 git clone https://github.com/6lr61/dotfiles.git ~/.dotfiles
@@ -13,14 +13,16 @@ make -C ~/.dotfiles
 
 ## Usage
 
-To add new dotfiles first create a new _package_, i.e. a directory for a specific program in your `~/.dotfiles` folder, and move the config files into that directory.
+### Adding new dotfiles
+
+First make a new _package_ by creating a directory for the specific program in the `~/.dotfiles` directory. Then move the config files into the newly created directory.
 
 ```console
 mkdir -p ~/.dotfiles/program
 mv ~/.programrc ~/.dotfiles/program
 ```
 
-Then use `stow` to create the symlinks in your home directory.
+Then use `stow` to create the corresponding symlinks for the config files in your home directory.
 
 ```console
 stow --target=$HOME ~/.dotfiles/program
