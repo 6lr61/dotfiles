@@ -18,12 +18,13 @@ make -C ~/.dotfiles
 First make a new _package_ by creating a directory for the specific program in the `~/.dotfiles` directory. Then move the config files into the newly created directory.
 
 ```console
-mkdir -p ~/.dotfiles/program
-mv ~/.programrc ~/.dotfiles/program
+mkdir -p ~/.dotfiles/package
+mv ~/.programrc ~/.dotfiles/package
 ```
 
 Then use `stow` to create the corresponding symlinks for the config files in your home directory.
 
 ```console
-stow --target=$HOME ~/.dotfiles/program
+cd ~/.dotfiles
+stow --target=$HOME package
 ```
