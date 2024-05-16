@@ -34,8 +34,31 @@ if [[ -n $COLOR_PROMPT ]]; then
     export LESS_TERMCAP_se=$'\e[0m'
 fi
 
-# Prompt
-PS1="\[\033[1m\]\$\[\033[0m\] "
+# Prompt with git status
+export GIT_PS1_SHOWDIRTYSTATE=1         # unstaged * and staged +
+export GIT_PS1_SHOWUNTRACKEDFILES=1     # untracked %
+export GIT_PS1_SHOWUPSTREAM="auto"      # behind <, ahead >, equal =
+
+if [[ -n $COLOR_PROMPT ]]; then
+    export GIT_PS1_SHOWCOLORHINTS=1
+fi
+
+PROMPT_COMMAND=prompt
+
+prompt() {
+    local EXIT="$?"
+    if [[ $EXIT -eq 0 ]]; then
+        unset STATUS
+    else
+        STATUS="$EXIT"
+    fi
+    
+    if [[ -n $COLOR_PROMPT ]]; then
+        PS1='${STATUS:+[\[\033[1;91m\]${STATUS}\[\033[0m\]]}$(__git_ps1 "(%s)")\[\033[1m\]\$\[\033[0m\] '
+    else
+        PS1='$(__git_ps1 "(%s)")\[\033[1m\]\$\[\033[0m\] '
+    fi
+}
 
 # Xterm title
 case "$TERM" in
