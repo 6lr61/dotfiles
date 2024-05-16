@@ -6,8 +6,6 @@ case $- in
       *) return;;
 esac
 
-COLUMN_LIMIT=80
-
 # Check if we're using a terminal with colors
 case "$TERM" in
     xterm-color|*-256color) COLOR_PROMPT="yes";;
@@ -23,7 +21,7 @@ shopt -s histappend	# append new commands to history file
 shopt -s checkwinsize	# check window size after each external command
 
 # Man pages
-MANWIDTH=$COLUMN_LIMIT
+export MANWIDTH=80
 
 # Prompt
 PS1="\[\033[1m\]\$\[\033[0m\] "
@@ -50,5 +48,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-unset COLUMN_LIMIT
