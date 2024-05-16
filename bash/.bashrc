@@ -54,7 +54,8 @@ prompt() {
     fi
     
     if [[ -n $COLOR_PROMPT ]]; then
-        PS1='${STATUS:+[\[\033[1;91m\]${STATUS}\[\033[0m\]]}$(__git_ps1 "(%s)")\[\033[1m\]\$\[\033[0m\] '
+        PS1='${STATUS:+[\[\033[1;91m\]${STATUS}\[\033[0m\]]}'
+        PS1+='$(__git_ps1 "(%s)")\[\033[1m\]\$\[\033[0m\] '
     else
         PS1='$(__git_ps1 "(%s)")\[\033[1m\]\$\[\033[0m\] '
     fi
