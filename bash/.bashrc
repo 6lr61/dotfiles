@@ -59,16 +59,16 @@ prompt() {
     else
         PS1='$(__git_ps1 "(%s)")\[\033[1m\]\$\[\033[0m\] '
     fi
-}
 
-# Xterm title
-case "$TERM" in
-xterm*)
-    PS1="\[\e]0;\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+    # Xterm title
+    case "$TERM" in
+        xterm*)
+            PS1="\[\e]0;\u@\h: \w\a\]$PS1"
+            ;;
+        *)
+            ;;
+    esac
+}
 
 # Alias definitions
 if [ -f ~/.bash_aliases ]; then
