@@ -23,6 +23,17 @@ shopt -s checkwinsize	# check window size after each external command
 # Man pages
 export MANWIDTH=80
 
+# Less colors, for man
+if [[ -n $COLOR_PROMPT ]]; then
+    export GROFF_NO_SGR=1
+    export LESS_TERMCAP_md=$'\e[1;96m'    # Bold
+    export LESS_TERMCAP_me=$'\e[0m'
+    export LESS_TERMCAP_us=$'\e[4;92m'    # Underlined
+    export LESS_TERMCAP_ue=$'\e[0m'
+    export LESS_TERMCAP_so=$'\e[7m'    # Standout, reversed text
+    export LESS_TERMCAP_se=$'\e[0m'
+fi
+
 # Prompt
 PS1="\[\033[1m\]\$\[\033[0m\] "
 
