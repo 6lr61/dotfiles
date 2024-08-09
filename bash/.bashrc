@@ -1,4 +1,4 @@
-PATH=$PATH:/home/learns/bin
+PATH=$PATH:$HOME/bin
 
 # If not running interactively, don't do anything
 case $- in
